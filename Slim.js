@@ -131,7 +131,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
         this.tagToClassDict.set(tagName, clazz);
         this.classToTagDict.set(clazz, tagName);
-        customElements.define(tagName, clazz);
+        if(!customElements.get(tagName)){
+          customElements.define(tagName, clazz);
+        }
       }
     }, {
       key: 'tagOf',
